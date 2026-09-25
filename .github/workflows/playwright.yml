@@ -1,6 +1,7 @@
-#To run manually: go to your repo → Actions → Playwright Tests → Run workflow → choose 
-your parameters → Run.
+# To run manually: go to your repo → Actions → Playwright Tests → Run workflow → choose
+# your parameters → Run.
 name: Playwright Tests
+
 on:
   push:
     branches: [master]
@@ -35,6 +36,7 @@ on:
           - headless
           - headed
         default: "headless"
+
 jobs:
   test:
     timeout-minutes: 60
@@ -42,17 +44,26 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name:  Set up Node.js
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
+
       - name: Install Dependencies
         run: npm ci
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
       - name: Create .env File
+        shell: pwsh
         run: Copy-Item .env.example .env
+
       - name: Run Playwright Tests
+        shell: pwsh
+        env:
+          CI: "1"
         run: |
           $suite = "${{ github.event.inputs.test_suite || 'test:e2e' }}"
           $browser = "${{ github.event.inputs.browser || 'chromium' }}"
@@ -60,10 +71,8 @@ jobs:
           $tag = $suite -replace 'test:', ''
           $browserFlag = "--project=$browser"
           $modeFlag = if ($mode -eq 'headed') { '--headed' } else { '' }
-          npx playwright test --grep "@$tag" $browserFlag $modeFlag --reporter=dot --
-output=test-results
-        env:
-          CI: "1"
+          npx playwright test --grep "@$tag" $browserFlag $modeFlag --reporter=dot --output=test-results
+
       - name: Upload Playwright HTML Report
         if: always()
         uses: actions/upload-artifact@v4
@@ -71,17 +80,19 @@ output=test-results
           name: playwright-report
           path: reports/
           retention-days: 30
-- name: Upload Custom Report
-if: always()
-uses: actions/upload-artifact@v4
-with:
-name: custom-report
-path: custom-report/
-retention-days: 30- 
-name: Upload Allure Results
-if: always()
-uses: actions/upload-artifact@v4
-with:
-name: allure-results
-path: allure-results/
-retention-days: 30
+
+      - name: Upload Custom Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: custom-report
+          path: custom-report/
+          retention-days: 30
+
+      - name: Upload Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results/
+          retention-days: 30
