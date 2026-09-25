@@ -1,0 +1,161 @@
+<testsuites id="" name="" tests="7" failures="1" skipped="1" errors="2" time="35.91599">
+<testsuite name="web\opencart-web.spec.ts" timestamp="2026-09-24T17:07:21.911Z" hostname="chromium" tests="7" failures="1" skipped="1" time="129.679" errors="2">
+<testcase name="OpenCart customer and shopping flows › registers a new customer @web @master @sanity @regression" classname="web\opencart-web.spec.ts" time="13.296">
+<system-out>
+<![CDATA[Completed customer registration flow.
+]]>
+</system-out>
+</testcase>
+<testcase name="OpenCart customer and shopping flows › logs in with configured customer credentials @web @master @sanity @regression" classname="web\opencart-web.spec.ts" time="19.404">
+<system-out>
+<![CDATA[Completed valid login flow.
+]]>
+</system-out>
+</testcase>
+<testcase name="OpenCart customer and shopping flows › rejects invalid customer credentials @web @master @regression" classname="web\opencart-web.spec.ts" time="11.802">
+<system-out>
+<![CDATA[Completed invalid login flow.
+]]>
+</system-out>
+</testcase>
+<testcase name="OpenCart customer and shopping flows › logs out an authenticated customer @web @master @regression" classname="web\opencart-web.spec.ts">
+<properties>
+<property name="skip" value="Configure APP_EMAIL and APP_PASSWORD in .env to run the logout scenario.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="OpenCart customer and shopping flows › searches for a known product @web @master @sanity @regression" classname="web\opencart-web.spec.ts" time="31.098">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\video.webm]]
+
+[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 30000ms exceeded." type="Error">
+<![CDATA[  [chromium] › web\opencart-web.spec.ts:106:7 › OpenCart customer and shopping flows › searches for a known product @web @master @sanity @regression › 1) Search for the configured product 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('form[action*="search"] button, button[aria-label*="Search"]')
+
+
+       at ..\pages\HomePage.ts:67
+
+      65 |   async searchFor(productName: string): Promise<void> {
+      66 |     await this.searchInput.fill(productName);
+    > 67 |     await this.searchButton.click();
+         |                             ^
+      68 |   }
+      69 |
+      70 |   /** Verifies that the product search results page is displayed. */
+        at HomePage.searchFor (D:\Testing project\openShop_playwright\pages\HomePage.ts:67:29)
+        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:110:7
+        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:109:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="OpenCart customer and shopping flows › adds a product to the shopping cart @web @master @sanity @regression" classname="web\opencart-web.spec.ts" time="30.865">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\video.webm]]
+
+[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 30000ms exceeded." type="Error">
+<![CDATA[  [chromium] › web\opencart-web.spec.ts:122:7 › OpenCart customer and shopping flows › adds a product to the shopping cart @web @master @sanity @regression › 1) Find and open the product 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('form[action*="search"] button, button[aria-label*="Search"]')
+
+
+       at ..\pages\HomePage.ts:67
+
+      65 |   async searchFor(productName: string): Promise<void> {
+      66 |     await this.searchInput.fill(productName);
+    > 67 |     await this.searchButton.click();
+         |                             ^
+      68 |   }
+      69 |
+      70 |   /** Verifies that the product search results page is displayed. */
+        at HomePage.searchFor (D:\Testing project\openShop_playwright\pages\HomePage.ts:67:29)
+        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:126:7
+        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:125:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="OpenCart customer and shopping flows › completes the end-to-end shopping journey @web @master @e2e @regression" classname="web\opencart-web.spec.ts" time="16.442">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--cb140-y-web-master-e2e-regression-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--cb140-y-web-master-e2e-regression-chromium\video.webm]]
+
+[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--cb140-y-web-master-e2e-regression-chromium\error-context.md]]
+]]>
+</system-out>
+<failure message="The expected product should be in the cart" type="expect.toBeTruthy">
+<![CDATA[  [chromium] › web\opencart-web.spec.ts:144:7 › OpenCart customer and shopping flows › completes the end-to-end shopping journey @web @master @e2e @regression › 3) Search, add, and validate the product cart 
+
+    Error: The expected product should be in the cart
+
+    expect(received).toBeTruthy()
+
+    Received: false
+
+      169 |       await productPage.addToCart();
+      170 |       const cartPage = await productPage.openCart();
+    > 171 |       expect(await cartPage.isProductInCart(name), 'The expected product should be in the cart').toBeTruthy();
+          |                                                                                                  ^
+      172 |       expect(await cartPage.getProductQuantity(), 'The cart quantity should match the requested quantity').toBe(quantity);
+      173 |       expect(await cartPage.getCartTotal(), 'The cart should display an applicable total').toContain('$');
+      174 |     });
+        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:171:98
+        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:165:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\web-opencart-web-OpenCart--cb140-y-web-master-e2e-regression-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\web-opencart-web-OpenCart--cb140-y-web-master-e2e-regression-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\web-opencart-web-OpenCart--cb140-y-web-master-e2e-regression-chromium\error-context.md
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

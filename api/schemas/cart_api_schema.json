@@ -1,0 +1,23 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"required": ["id", "userId", "date", "products"],
+	"properties": {
+		"id": { "type": "integer" },
+		"userId": { "type": "integer" },
+		"date": { "type": "string" },
+		"products": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": ["productId", "quantity"],
+				"properties": {
+					"productId": { "type": "integer" },
+					"quantity": { "type": "integer" }
+				},
+				"additionalProperties": true
+			}
+		}
+	},
+	"additionalProperties": true
+}

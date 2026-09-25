@@ -1,0 +1,39 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+#Environmnet secret files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+#report files
+report.html
+/report.json
+/allure-report/
+/allure-results/
+/cucumber-report/
+
+#tool id command line tool
+.claude/
+.commandcode/
+.playwright-cli/
+.playwright-MCP/
+
+#OS filea
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+#Editor swap files
+*.swp
+*.swo
+*~
+
