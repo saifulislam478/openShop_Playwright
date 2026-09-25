@@ -21,7 +21,7 @@ export class HomePage {
     this.page = page;
 
     // Initialize locators with CSS selectors
-    this.accountMenu = page.getByRole('link', { name: /my account/i });
+    this.accountMenu = page.getByRole('link', { name: /My Account/i }).first();
     this.registerLink = page.getByRole('link', { name: /^register$/i });
     this.loginLink = page.getByRole('link', { name: /^login$/i }).first();
     this.searchInput = page.getByPlaceholder(/search/i);
@@ -34,7 +34,8 @@ export class HomePage {
   /** Opens the My Account menu. */
   async openAccountMenu(): Promise<void> {
     if (!(await this.accountMenu.isVisible().catch(() => false))) {
-      await this.page.goto('http://localhost/opencart/upload/');
+      // await this.page.goto('http://localhost/opencart/upload/');
+      await this.page.goto("https://awesomeqa.com/ui/");
     }
     await this.accountMenu.click();
   }

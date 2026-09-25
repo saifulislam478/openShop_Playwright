@@ -1,122 +1,49 @@
-<testsuites id="" name="" tests="7" failures="1" skipped="1" errors="2" time="35.91599">
-<testsuite name="web\opencart-web.spec.ts" timestamp="2026-09-24T17:07:21.911Z" hostname="chromium" tests="7" failures="1" skipped="1" time="129.679" errors="2">
-<testcase name="OpenCart customer and shopping flows › registers a new customer @web @master @sanity @regression" classname="web\opencart-web.spec.ts" time="13.296">
-<system-out>
-<![CDATA[Completed customer registration flow.
-]]>
-</system-out>
-</testcase>
-<testcase name="OpenCart customer and shopping flows › logs in with configured customer credentials @web @master @sanity @regression" classname="web\opencart-web.spec.ts" time="19.404">
-<system-out>
-<![CDATA[Completed valid login flow.
-]]>
-</system-out>
-</testcase>
-<testcase name="OpenCart customer and shopping flows › rejects invalid customer credentials @web @master @regression" classname="web\opencart-web.spec.ts" time="11.802">
-<system-out>
-<![CDATA[Completed invalid login flow.
-]]>
-</system-out>
-</testcase>
-<testcase name="OpenCart customer and shopping flows › logs out an authenticated customer @web @master @regression" classname="web\opencart-web.spec.ts">
-<properties>
-<property name="skip" value="Configure APP_EMAIL and APP_PASSWORD in .env to run the logout scenario.">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="OpenCart customer and shopping flows › searches for a known product @web @master @sanity @regression" classname="web\opencart-web.spec.ts" time="31.098">
+<testsuites id="" name="" tests="2" failures="2" skipped="0" errors="0" time="9.964127000000001">
+<testsuite name="db\customer-registration-db.spec.ts" timestamp="2026-09-25T01:37:00.497Z" hostname="chromium" tests="1" failures="1" skipped="0" time="2.622" errors="0">
+<testcase name="registers and validates one customer across UI admin and MySQL @master @e2e @db @regression" classname="db\customer-registration-db.spec.ts" time="2.622">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\test-failed-1.png]]
+[[ATTACHMENT|..\test-results\db-customer-registration-d-ae5fe-QL-master-e2e-db-regression-chromium\test-failed-1.png]]
 
-[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\video.webm]]
+[[ATTACHMENT|..\test-results\db-customer-registration-d-ae5fe-QL-master-e2e-db-regression-chromium\video.webm]]
 
-[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\error-context.md]]
+[[ATTACHMENT|..\test-results\db-customer-registration-d-ae5fe-QL-master-e2e-db-regression-chromium\error-context.md]]
 ]]>
 </system-out>
-<error message="Test timeout of 30000ms exceeded." type="Error">
-<![CDATA[  [chromium] › web\opencart-web.spec.ts:106:7 › OpenCart customer and shopping flows › searches for a known product @web @master @sanity @regression › 1) Search for the configured product 
+<failure message="Frontend registration page should be displayed" type="expect.toBeTruthy">
+<![CDATA[  [chromium] › db\customer-registration-db.spec.ts:19:5 › registers and validates one customer across UI admin and MySQL @master @e2e @db @regression › 1) Register a unique customer through the frontend 
 
-    Test timeout of 30000ms exceeded.
+    Error: Frontend registration page should be displayed
 
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for locator('form[action*="search"] button, button[aria-label*="Search"]')
+    expect(received).toBeTruthy()
 
+    Received: false
 
-       at ..\pages\HomePage.ts:67
-
-      65 |   async searchFor(productName: string): Promise<void> {
-      66 |     await this.searchInput.fill(productName);
-    > 67 |     await this.searchButton.click();
-         |                             ^
-      68 |   }
-      69 |
-      70 |   /** Verifies that the product search results page is displayed. */
-        at HomePage.searchFor (D:\Testing project\openShop_playwright\pages\HomePage.ts:67:29)
-        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:110:7
-        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:109:5
+      26 |       await homePage.openAccountMenu();
+      27 |       const registerPage = await homePage.clickRegister();
+    > 28 |       expect(await registerPage.isRegisterPageExists(), 'Frontend registration page should be displayed').toBeTruthy();
+         |                                                                                                           ^
+      29 |       const accountPage = await registerPage.completeRegistration(customer);
+      30 |       expect(await registerPage.isAccountCreated(), 'Frontend registration should show account-created confirmation').toBeTruthy();
+      31 |       expect(await accountPage.isAuthenticatedNavigationVisible(), 'Registered customer account navigation should be available').toBeTruthy();
+        at D:\Testing project\openShop_playwright\tests\db\customer-registration-db.spec.ts:28:107
+        at D:\Testing project\openShop_playwright\tests\db\customer-registration-db.spec.ts:25:5
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\test-failed-1.png
+    ..\test-results\db-customer-registration-d-ae5fe-QL-master-e2e-db-regression-chromium\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\video.webm
+    ..\test-results\db-customer-registration-d-ae5fe-QL-master-e2e-db-regression-chromium\video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ..\test-results\web-opencart-web-OpenCart--0d3c3-eb-master-sanity-regression-chromium\error-context.md
+    Error Context: ..\test-results\db-customer-registration-d-ae5fe-QL-master-e2e-db-regression-chromium\error-context.md
 ]]>
-</error>
+</failure>
 </testcase>
-<testcase name="OpenCart customer and shopping flows › adds a product to the shopping cart @web @master @sanity @regression" classname="web\opencart-web.spec.ts" time="30.865">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\video.webm]]
-
-[[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded." type="Error">
-<![CDATA[  [chromium] › web\opencart-web.spec.ts:122:7 › OpenCart customer and shopping flows › adds a product to the shopping cart @web @master @sanity @regression › 1) Find and open the product 
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for locator('form[action*="search"] button, button[aria-label*="Search"]')
-
-
-       at ..\pages\HomePage.ts:67
-
-      65 |   async searchFor(productName: string): Promise<void> {
-      66 |     await this.searchInput.fill(productName);
-    > 67 |     await this.searchButton.click();
-         |                             ^
-      68 |   }
-      69 |
-      70 |   /** Verifies that the product search results page is displayed. */
-        at HomePage.searchFor (D:\Testing project\openShop_playwright\pages\HomePage.ts:67:29)
-        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:126:7
-        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:125:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\web-opencart-web-OpenCart--b650d-eb-master-sanity-regression-chromium\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="OpenCart customer and shopping flows › completes the end-to-end shopping journey @web @master @e2e @regression" classname="web\opencart-web.spec.ts" time="16.442">
+</testsuite>
+<testsuite name="web\opencart-web.spec.ts" timestamp="2026-09-25T01:37:00.497Z" hostname="chromium" tests="1" failures="1" skipped="0" time="7.18" errors="0">
+<testcase name="OpenCart customer and shopping flows › completes the end-to-end shopping journey @web @master @e2e @regression" classname="web\opencart-web.spec.ts" time="7.18">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--cb140-y-web-master-e2e-regression-chromium\test-failed-1.png]]
@@ -126,24 +53,24 @@
 [[ATTACHMENT|..\test-results\web-opencart-web-OpenCart--cb140-y-web-master-e2e-regression-chromium\error-context.md]]
 ]]>
 </system-out>
-<failure message="The expected product should be in the cart" type="expect.toBeTruthy">
-<![CDATA[  [chromium] › web\opencart-web.spec.ts:144:7 › OpenCart customer and shopping flows › completes the end-to-end shopping journey @web @master @e2e @regression › 3) Search, add, and validate the product cart 
+<failure message="New customer should reach My Account after re-login" type="expect.toBeTruthy">
+<![CDATA[  [chromium] › web\opencart-web.spec.ts:144:7 › OpenCart customer and shopping flows › completes the end-to-end shopping journey @web @master @e2e @regression › 2) Log in again with the new customer credentials 
 
-    Error: The expected product should be in the cart
+    Error: New customer should reach My Account after re-login
 
     expect(received).toBeTruthy()
 
     Received: false
 
-      169 |       await productPage.addToCart();
-      170 |       const cartPage = await productPage.openCart();
-    > 171 |       expect(await cartPage.isProductInCart(name), 'The expected product should be in the cart').toBeTruthy();
-          |                                                                                                  ^
-      172 |       expect(await cartPage.getProductQuantity(), 'The cart quantity should match the requested quantity').toBe(quantity);
-      173 |       expect(await cartPage.getCartTotal(), 'The cart should display an applicable total').toContain('$');
-      174 |     });
-        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:171:98
-        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:165:5
+      160 |       const loginPage = await homePage.clickLogin();
+      161 |       const accountPage = await loginPage.login(customer.email, customer.password);
+    > 162 |       expect(await accountPage.isMyAccountPageExists(), 'New customer should reach My Account after re-login').toBeTruthy();
+          |                                                                                                                ^
+      163 |     });
+      164 |
+      165 |     await test.step('3) Search, add, and validate the product cart', async () => {
+        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:162:112
+        at D:\Testing project\openShop_playwright\tests\web\opencart-web.spec.ts:158:5
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\web-opencart-web-OpenCart--cb140-y-web-master-e2e-regression-chromium\test-failed-1.png
